@@ -1,0 +1,59 @@
+:root {
+	font-family: 'Lato', sans-serif;
+}
+
+// LAYOUT - NAVBAR //
+nav {
+	display: flex;
+	justify-content: space-between;
+
+	.user {
+		display: flex;
+		align-items: flex-end;
+		text-transform: uppercase;
+
+	}
+	.abm-menu {
+		display: none;
+	}
+} // nav
+
+// HOME //
+.home {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 15px;
+}
+
+// BALANCE //
+.balance {
+	width: 200px;
+	margin-inline: auto;
+	text-align: center;
+
+	.balance-name {
+		color: rgb(172, 172, 172);
+		font-weight: 300;
+		margin: 0;
+	}
+
+	.balance-amount {
+		span:first-child {
+			color:rgb(111, 98, 228);
+		}
+		span:last-child {
+			color: black;
+			font-size: 24pt;
+			line-height: 24pt;
+		}
+	}
+} // .balance
+
+// TABLE //
+.table {
+	margin-top: 15px;
+	th {
+		width: 20%;
+	}
+}
