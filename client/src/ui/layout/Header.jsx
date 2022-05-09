@@ -1,18 +1,20 @@
 import { useState, useContext } from "react"
 import { Link } from "react-router-dom"
-import TopMenu from "../pages/TopMenu"
 import { contextFromAuth } from '../../api/AuthProvider'
+import TopMenu from "../pages/TopMenu"
 
 const Header = () => {
 	const [test, setTest] = useState(false)
-	const { auth } = useContext(contextFromAuth)
+	const { auth, userData } = useContext(contextFromAuth)
+
   return (
     <header>
 			<button onClick={()=>setTest(!test)} value='PROBAR'/>
       <nav>
         <img src='./../../../img/corn.png'/>
 
-        <ul className='abm-menu'>
+        {auth?
+				<ul className='abm-menu'>
           <li>
 						<span className='material-icons-outlined'>home</span>
 						<span className='icon-text'>HOME</span>
@@ -30,10 +32,13 @@ const Header = () => {
 						<span className='icon-text'>ELIMINAR</span>
 					</li>
         </ul>
+				: ''}
 
 				<div className="user">
-          <span className="username"><Link to='/user'>{auth ? 'Leonardo':'LOGIN'}</Link></span>
-          <span className='material-icons-outlined'>arrow_drop_down</span>
+          <span className="username">
+						<Link to='/user'>{auth ? (userData?.name?userData.name:'CARGANDO' ): 'LOGIN'}</Link>
+					</span>
+          {/*<span className='material-icons-outlined'>arrow_drop_down</span>*/}
         </div>
       </nav>
 			{test && <TopMenu setTest={setTest}/>}
