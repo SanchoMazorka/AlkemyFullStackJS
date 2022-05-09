@@ -6,9 +6,7 @@ const Table = () => {
 
 	const transformDate = (ms) => {
 		const date = new Date(ms*1000)
-		let fecha =  `${date.getHours().toString().padStart(2, 0)}:${date.getMinutes().toString().padStart(2, 0)} ${date.getDay().toString().padStart(2, 0)}/${date.getMonth().toString().padStart(2, 0)}/${date.getUTCFullYear().toString().padStart(2, 0)}`
-		console.log(fecha);
-		return fecha
+		return `${date.getHours().toString().padStart(2, 0)}:${date.getMinutes().toString().padStart(2, 0)} ${date.getDay().toString().padStart(2, 0)}/${date.getMonth().toString().padStart(2, 0)}/${date.getUTCFullYear().toString().padStart(2, 0)}`
 	}
 
 	return (
